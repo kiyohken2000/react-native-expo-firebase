@@ -54,7 +54,7 @@ if (!firebase.apps.length) {
 export { firebase };
 ```
 
-### 3. Update app.json and default avatar
+### 3. Update app.json
 
 Replace the name and Slug with yours.
 
