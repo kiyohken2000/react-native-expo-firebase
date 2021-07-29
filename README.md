@@ -1,6 +1,11 @@
 # React Native Expo with Firebase
 
 - [Expo link](https://expo.dev/@votepurchase/react-native-expo-firebase-appmenu)
+- [Demo video](https://youtu.be/WTE3YHfLE9g)
+
+## Screens
+
+<img src='https://github.com/kiyohken2000/react-native-expo-firebase/blob/master/__DELELE_ME__/img.png' width='80%'>
 
 ## Infrastructure
 
