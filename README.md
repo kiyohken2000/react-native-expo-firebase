@@ -59,6 +59,8 @@ if (!firebase.apps.length) {
 export { firebase };
 ```
 
+and Check your Firestore Security Rules.
+
 ### 3. Update app.json
 
 Replace the name and Slug with yours.
