@@ -2,9 +2,18 @@ import React, { useContext } from 'react'
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer'
 import DrawerMenu from './DrawerMenu'
 import TabNavigator from '../tabs'
+import { Item1Navigator, Item2Navigator, Item3Navigator, Item4Navigator } from '../stacks'
 import { Global } from '../Navigation'
 
 const Drawer = createDrawerNavigator()
+
+const DrawerMenuList = [
+  TabNavigator,
+  Item1Navigator,
+  Item2Navigator,
+  Item3Navigator,
+  Item4Navigator
+]
 
 const DrawerMenuContainer = (props) => {
   const { state, ...rest } = props
@@ -29,12 +38,11 @@ const DrawerNavigator = () => {
         backgroundColor: data.color?data.color.drawer:'white',
       }}
     >
-    <Drawer.Screen name="Home" component={TabNavigator} />
       {
         data.drawer?
         data.drawer.map((item, i) => {
           return (
-            <Drawer.Screen key={i} name={item.label} component={TabNavigator} />
+            <Drawer.Screen key={i} name={item.label} component={DrawerMenuList[item.value]} />
           )
         }):
         <Drawer.Screen name="item" component={TabNavigator} />

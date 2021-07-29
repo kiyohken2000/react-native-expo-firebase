@@ -8,6 +8,11 @@ import HeaderLeft from './HeaderLeft'
 import HeaderTitle from './HeaderTitle'
 import { Global } from '../Navigation'
 
+import Item1 from 'scenes/item1'
+import Item2 from 'scenes/item2'
+import Item3 from 'scenes/item3'
+import Item4 from 'scenes/item4'
+
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -83,6 +88,114 @@ export const ProfileNavigator = () => {
         options={{
           title: 'Details',
         }}
+      />
+    </Stack.Navigator>
+  )
+}
+
+export const Item1Navigator = () => {
+  const { data } = useContext(Global)
+  return (
+    <Stack.Navigator
+      initialRouteName="Item1"
+      headerMode="screen"
+      screenOptions={
+        {
+          headerTintColor: 'white',
+          headerStyle: { backgroundColor: data.color?data.color.header:colors.darkPurple },
+          headerTitleStyle: { fontSize: 18 },
+        }
+      }
+    >
+      <Stack.Screen
+        name="Item1"
+        component={Item1}
+        options={({ navigation }) => ({
+          title: 'Item1',
+          headerLeft: () => <HeaderLeft navigation={navigation} />,
+          headerTitle: () => <HeaderTitle />,
+        })}
+      />
+    </Stack.Navigator>
+  )
+}
+
+export const Item2Navigator = () => {
+  const { data } = useContext(Global)
+  return (
+    <Stack.Navigator
+      initialRouteName="Item2"
+      headerMode="screen"
+      screenOptions={
+        {
+          headerTintColor: 'white',
+          headerStyle: { backgroundColor: data.color?data.color.header:colors.darkPurple },
+          headerTitleStyle: { fontSize: 18 },
+        }
+      }
+    >
+      <Stack.Screen
+        name="Item2"
+        component={Item2}
+        options={({ navigation }) => ({
+          title: 'Item2',
+          headerLeft: () => <HeaderLeft navigation={navigation} />,
+          headerTitle: () => <HeaderTitle />,
+        })}
+      />
+    </Stack.Navigator>
+  )
+}
+
+export const Item3Navigator = () => {
+  const { data } = useContext(Global)
+  return (
+    <Stack.Navigator
+      initialRouteName="Item3"
+      headerMode="screen"
+      screenOptions={
+        {
+          headerTintColor: 'white',
+          headerStyle: { backgroundColor: data.color?data.color.header:colors.darkPurple },
+          headerTitleStyle: { fontSize: 18 },
+        }
+      }
+    >
+      <Stack.Screen
+        name="Item3"
+        component={Item3}
+        options={({ navigation }) => ({
+          title: 'Item3',
+          headerLeft: () => <HeaderLeft navigation={navigation} />,
+          headerTitle: () => <HeaderTitle />,
+        })}
+      />
+    </Stack.Navigator>
+  )
+}
+
+export const Item4Navigator = () => {
+  const { data } = useContext(Global)
+  return (
+    <Stack.Navigator
+      initialRouteName="Item4"
+      headerMode="screen"
+      screenOptions={
+        {
+          headerTintColor: 'white',
+          headerStyle: { backgroundColor: data.color?data.color.header:colors.darkPurple },
+          headerTitleStyle: { fontSize: 18 },
+        }
+      }
+    >
+      <Stack.Screen
+        name="Item4"
+        component={Item4}
+        options={({ navigation }) => ({
+          title: 'Item4',
+          headerLeft: () => <HeaderLeft navigation={navigation} />,
+          headerTitle: () => <HeaderTitle />,
+        })}
       />
     </Stack.Navigator>
   )
