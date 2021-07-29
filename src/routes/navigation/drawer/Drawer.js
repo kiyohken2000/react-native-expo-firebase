@@ -1,11 +1,8 @@
-import React from 'react'
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-} from '@react-navigation/drawer'
+import React, { useContext } from 'react'
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer'
 import DrawerMenu from './DrawerMenu'
 import TabNavigator from '../tabs'
+import { Global } from '../Navigation'
 
 const Drawer = createDrawerNavigator()
 
@@ -21,10 +18,29 @@ const DrawerMenuContainer = (props) => {
   )
 }
 
-const DrawerNavigator = () => (
-  <Drawer.Navigator initialRouteName="Home" drawerContent={DrawerMenuContainer}>
+const DrawerNavigator = () => {
+  const { data } = useContext(Global)
+  console.log(data)
+  return (
+    <Drawer.Navigator
+      initialRouteName="Home"
+      drawerContent={DrawerMenuContainer}
+      drawerStyle={{
+        backgroundColor: data.color?data.color.drawer:'white',
+      }}
+    >
     <Drawer.Screen name="Home" component={TabNavigator} />
-  </Drawer.Navigator>
-)
+      {
+        data.drawer?
+        data.drawer.map((item, i) => {
+          return (
+            <Drawer.Screen key={i} name={item.label} component={TabNavigator} />
+          )
+        }):
+        <Drawer.Screen name="item" component={TabNavigator} />
+      }
+    </Drawer.Navigator>
+  )
+}
 
 export default DrawerNavigator
