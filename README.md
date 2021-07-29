@@ -3,7 +3,7 @@
 - [Expo link](https://expo.dev/@votepurchase/react-native-expo-firebase-appmenu)
 - [Demo video](https://youtu.be/WTE3YHfLE9g)
 
-## Screens
+## Screenshot
 
 <img src='https://github.com/kiyohken2000/react-native-expo-firebase/blob/master/__DELELE_ME__/img.png' width='80%'>
 
