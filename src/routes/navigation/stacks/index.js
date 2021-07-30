@@ -5,6 +5,7 @@ import {
   Item2Navigator,
   Item3Navigator,
   Item4Navigator,
+  Item5Navigator,
 } from './Stacks'
 
 export {
@@ -14,4 +15,5 @@ export {
   Item2Navigator,
   Item3Navigator,
   Item4Navigator,
+  Item5Navigator,
 }

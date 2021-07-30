@@ -2,8 +2,9 @@ import React, { useContext } from 'react'
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer'
 import DrawerMenu from './DrawerMenu'
 import TabNavigator from '../tabs'
-import { Item1Navigator, Item2Navigator, Item3Navigator, Item4Navigator } from '../stacks'
+import { Item1Navigator, Item2Navigator, Item3Navigator, Item4Navigator, Item5Navigator } from '../stacks'
 import { Global } from '../Navigation'
+import FontIcon from 'react-native-vector-icons/FontAwesome5'
 
 const Drawer = createDrawerNavigator()
 
@@ -12,13 +13,13 @@ const DrawerMenuList = [
   Item1Navigator,
   Item2Navigator,
   Item3Navigator,
-  Item4Navigator
+  Item4Navigator,
+  Item5Navigator,
 ]
 
 const DrawerMenuContainer = (props) => {
   const { state, ...rest } = props
   const newState = { ...state }
-  newState.routes = newState.routes.filter((item) => item.name !== 'Home')
   return (
     <DrawerContentScrollView {...props}>
       <DrawerMenu {...props} />
@@ -29,7 +30,6 @@ const DrawerMenuContainer = (props) => {
 
 const DrawerNavigator = () => {
   const { data } = useContext(Global)
-  console.log(data)
   return (
     <Drawer.Navigator
       initialRouteName="Home"
@@ -42,10 +42,27 @@ const DrawerNavigator = () => {
         data.drawer?
         data.drawer.map((item, i) => {
           return (
-            <Drawer.Screen key={i} name={item.label} component={DrawerMenuList[item.value]} />
+            <Drawer.Screen
+              key={i}
+              name={item.label}
+              component={DrawerMenuList[item.value]}
+              options={{
+                title: item.label,
+                drawerIcon: ({focused, size}) => (
+                  <FontIcon
+                    name={item.icon}
+                    size={size}
+                    color={focused ? '#7cc' : '#ccc'}
+                  />
+                ),
+              }}
+            />
           )
         }):
-        <Drawer.Screen name="item" component={TabNavigator} />
+        <Drawer.Screen
+          name="Home"
+          component={TabNavigator} 
+        />
       }
     </Drawer.Navigator>
   )

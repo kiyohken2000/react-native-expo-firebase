@@ -12,6 +12,7 @@ import Item1 from 'scenes/item1'
 import Item2 from 'scenes/item2'
 import Item3 from 'scenes/item3'
 import Item4 from 'scenes/item4'
+import Item5 from 'scenes/item5'
 
 // ------------------------------------
 // Constants
@@ -43,7 +44,6 @@ export const HomeNavigator = () => {
         options={({ navigation }) => ({
           title: 'Home',
           headerLeft: () => <HeaderLeft navigation={navigation} />,
-          headerTitle: () => <HeaderTitle />,
         })}
       />
       <Stack.Screen
@@ -52,7 +52,6 @@ export const HomeNavigator = () => {
         options={({ navigation }) => ({
           title: 'Home',
           headerLeft: () => <HeaderLeft navigation={navigation} />,
-          headerTitle: () => <HeaderTitle />,
         })}
       />
     </Stack.Navigator>
@@ -79,7 +78,6 @@ export const ProfileNavigator = () => {
         options={({ navigation }) => ({
           title: 'Profile',
           headerLeft: () => <HeaderLeft navigation={navigation} />,
-          headerTitle: () => <HeaderTitle />,
         })}
       />
       <Stack.Screen
@@ -113,7 +111,6 @@ export const Item1Navigator = () => {
         options={({ navigation }) => ({
           title: 'Item1',
           headerLeft: () => <HeaderLeft navigation={navigation} />,
-          headerTitle: () => <HeaderTitle />,
         })}
       />
     </Stack.Navigator>
@@ -140,7 +137,6 @@ export const Item2Navigator = () => {
         options={({ navigation }) => ({
           title: 'Item2',
           headerLeft: () => <HeaderLeft navigation={navigation} />,
-          headerTitle: () => <HeaderTitle />,
         })}
       />
     </Stack.Navigator>
@@ -157,7 +153,6 @@ export const Item3Navigator = () => {
         {
           headerTintColor: 'white',
           headerStyle: { backgroundColor: data.color?data.color.header:colors.darkPurple },
-          headerTitleStyle: { fontSize: 18 },
         }
       }
     >
@@ -167,7 +162,6 @@ export const Item3Navigator = () => {
         options={({ navigation }) => ({
           title: 'Item3',
           headerLeft: () => <HeaderLeft navigation={navigation} />,
-          headerTitle: () => <HeaderTitle />,
         })}
       />
     </Stack.Navigator>
@@ -194,7 +188,32 @@ export const Item4Navigator = () => {
         options={({ navigation }) => ({
           title: 'Item4',
           headerLeft: () => <HeaderLeft navigation={navigation} />,
-          headerTitle: () => <HeaderTitle />,
+        })}
+      />
+    </Stack.Navigator>
+  )
+}
+
+export const Item5Navigator = () => {
+  const { data } = useContext(Global)
+  return (
+    <Stack.Navigator
+      initialRouteName="Item5"
+      headerMode="screen"
+      screenOptions={
+        {
+          headerTintColor: 'white',
+          headerStyle: { backgroundColor: data.color?data.color.header:colors.darkPurple },
+          headerTitleStyle: { fontSize: 18 },
+        }
+      }
+    >
+      <Stack.Screen
+        name="Item5"
+        component={Item5}
+        options={({ navigation }) => ({
+          title: 'Item5',
+          headerLeft: () => <HeaderLeft navigation={navigation} />,
         })}
       />
     </Stack.Navigator>
