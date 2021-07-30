@@ -61,6 +61,10 @@ export { firebase };
 
 and Check your Firestore Security Rules.
 
+**Firestore structure**
+
+<img src='https://github.com/kiyohken2000/react-native-expo-firebase/blob/master/__DELELE_ME__/img1.png' width='80%'>
+
 ### 3. Update app.json
 
 Replace the name and Slug with yours.
