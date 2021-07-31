@@ -10,6 +10,7 @@ import { Global } from '../Navigation'
 
 import Item1 from 'scenes/item1'
 import Item2 from 'scenes/item2'
+import Item2Content from 'scenes/item2content'
 import Item3 from 'scenes/item3'
 import Item4 from 'scenes/item4'
 import Item5 from 'scenes/item5'
@@ -137,6 +138,13 @@ export const Item2Navigator = () => {
         options={({ navigation }) => ({
           title: 'Item2',
           headerLeft: () => <HeaderLeft navigation={navigation} />,
+        })}
+      />
+      <Stack.Screen
+        name="Item2Content"
+        component={Item2Content}
+        options={({ navigation }) => ({
+          title: 'Item2Content',
         })}
       />
     </Stack.Navigator>
