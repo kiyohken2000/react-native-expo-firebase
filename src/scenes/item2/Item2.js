@@ -18,7 +18,6 @@ export default function Item2() {
     }
       )
     setData(result.data.contents)
-    console.log(data)
   };
 
   useEffect(() => {

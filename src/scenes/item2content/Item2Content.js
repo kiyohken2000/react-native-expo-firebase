@@ -9,12 +9,11 @@ export default function Item2Content() {
   const route = useRoute()
   const data = route.params.data
   const [playing, setPlaying] = useState(false)
-  const { width } = useWindowDimensions()
+  const { width, height } = useWindowDimensions()
 
   const onStateChange = useCallback((state) => {
     if (state === "ended") {
       setPlaying(false);
-      Alert.alert("video has finished playing!");
     }
   }, []);
 
@@ -29,14 +28,15 @@ export default function Item2Content() {
   return (
     <View style={styles.container}>
       <YoutubePlayer
-        height={300}
+        height={height * 0.27}
         play={playing}
         videoId={data.videoid}
         onChangeState={onStateChange}
       />
       <Button title={playing ? "pause" : "play"} onPress={togglePlaying} />
+      <Text style={styles.title}>{data.title}</Text>
+      <Text>{data.date}</Text>
       <ScrollView>
-        <Text style={styles.title}>{data.title}</Text>
         <RenderHtml
           contentWidth={width}
           source={source}
