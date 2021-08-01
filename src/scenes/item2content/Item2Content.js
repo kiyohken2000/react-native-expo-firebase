@@ -1,14 +1,15 @@
 import React, { useState, useCallback, useRef } from "react"
-import { StyleSheet, Text, View, StatusBar, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, StatusBar, ScrollView, useWindowDimensions } from 'react-native'
 import { useRoute } from '@react-navigation/native'
-import HTML from 'react-native-render-html'
+import RenderHtml from 'react-native-render-html'
 import YoutubePlayer from "react-native-youtube-iframe"
 import Button from 'components/Button'
 
 export default function Item2Content() {
   const route = useRoute()
   const data = route.params.data
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(false)
+  const { width } = useWindowDimensions()
 
   const onStateChange = useCallback((state) => {
     if (state === "ended") {
@@ -21,6 +22,10 @@ export default function Item2Content() {
     setPlaying((prev) => !prev);
   }, []);
 
+  const source = {
+    html: data.content
+  };
+
   return (
     <View style={styles.container}>
       <YoutubePlayer
@@ -32,7 +37,10 @@ export default function Item2Content() {
       <Button title={playing ? "pause" : "play"} onPress={togglePlaying} />
       <ScrollView>
         <Text style={styles.title}>{data.title}</Text>
-        <HTML html={ data.content } />
+        <RenderHtml
+          contentWidth={width}
+          source={source}
+        />
       </ScrollView>
     </View>
   );
