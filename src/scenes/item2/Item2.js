@@ -13,9 +13,9 @@ export default function Item2() {
   const fetchData = async () => {
     const result = await axios.get(
       'https://appmenu.microcms.io/api/v1/content',
-    {
-      headers: { 'X-API-KEY': '55550639-4557-4342-9fc8-b8262245ae32' }
-    }
+        {
+          headers: { 'X-API-KEY': '55550639-4557-4342-9fc8-b8262245ae32' }
+        }
       )
     setData(result.data.contents)
   };
